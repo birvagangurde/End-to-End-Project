@@ -8,8 +8,6 @@ from selenium.webdriver.support.wait import WebDriverWait
 
 
 def test_e2e(browserInstance):
-    options = Options()
-    options.add_argument('--ignore-certificate-errors')
     driver = browserInstance
     driver.get("https://rahulshettyacademy.com/angularpractice/")
     # //a[contains(@href, 'shop')]         a[href*='shop']    #two ways of using regular expression
