@@ -7,13 +7,10 @@ from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 
 
-def test_e2e():
+def test_e2e(browserInstance):
     options = Options()
     options.add_argument('--ignore-certificate-errors')
-
-    driver = webdriver.Chrome(options = options)
-    driver.implicitly_wait(4)
-
+    driver = browserInstance
     driver.get("https://rahulshettyacademy.com/angularpractice/")
     # //a[contains(@href, 'shop')]         a[href*='shop']    #two ways of using regular expression
     driver.find_element(By.CSS_SELECTOR, "a[href*='shop']").click()
