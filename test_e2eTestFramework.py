@@ -9,7 +9,11 @@ from selenium.webdriver.support.wait import WebDriverWait
 
 def test_e2e(browserInstance):
     driver = browserInstance
-    driver.get("https://rahulshettyacademy.com/angularpractice/")
+    driver.get("https://rahulshettyacademy.com/loginpagePractise/")
+    driver.find_element(By.ID, "username").send_keys("rahulshettyacademy")
+    driver.find_element(By.NAME, "password").send_keys("learning")
+    driver.find_element(By.ID, "signInBtn").click()
+
     # //a[contains(@href, 'shop')]         a[href*='shop']    #two ways of using regular expression
     driver.find_element(By.CSS_SELECTOR, "a[href*='shop']").click()
     products = driver.find_elements(By.XPATH, '//div[@class="card h-100"]')
