@@ -6,10 +6,15 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 
+from pageObjects.login import LoginPage
+
 
 def test_e2e(browserInstance):
     driver = browserInstance
     driver.get("https://rahulshettyacademy.com/loginpagePractise/")
+    loginPage = LoginPage(driver)
+    loginPage.login()
+
 
     # //a[contains(@href, 'shop')]         a[href*='shop']    #two ways of using regular expression
     driver.find_element(By.CSS_SELECTOR, "a[href*='shop']").click()
