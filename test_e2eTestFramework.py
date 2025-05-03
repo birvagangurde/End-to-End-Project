@@ -6,6 +6,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 
+from pageObjects.ShopPage import ShopPage
 from pageObjects.login import LoginPage
 
 
@@ -14,13 +15,9 @@ def test_e2e(browserInstance):
     driver.get("https://rahulshettyacademy.com/loginpagePractise/")
     loginPage = LoginPage(driver)
     loginPage.login()
-
-
-    # //a[contains(@href, 'shop')]         a[href*='shop']    #two ways of using regular expression
-
-
-    driver.find_element(By.CSS_SELECTOR, "a[class*='btn-primary']").click()
-
+    shop_page = ShopPage(driver)
+    shop_page.add_product_to_cart("Blackberry")
+    shop_page.goToCart()
     driver.find_element(By.XPATH, "//button[@class='btn btn-success']").click()
     driver.find_element(By.ID, "country").send_keys("ind")
     wait = WebDriverWait(driver, 10)
