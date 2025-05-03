@@ -4,6 +4,7 @@ import sys
 from selenium.webdriver.common.by import By
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 class LoginPage:
     def __init__(self, driver):
         self.driver = driver
