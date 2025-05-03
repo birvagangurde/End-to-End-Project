@@ -14,8 +14,7 @@ def test_e2e(browserInstance):
     driver = browserInstance
     driver.get("https://rahulshettyacademy.com/loginpagePractise/")
     loginPage = LoginPage(driver)
-    loginPage.login()
-    shop_page = ShopPage(driver)
+    shop_page = loginPage.login()
     shop_page.add_product_to_cart("Blackberry")
     shop_page.goToCart()
     driver.find_element(By.XPATH, "//button[@class='btn btn-success']").click()
