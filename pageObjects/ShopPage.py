@@ -6,13 +6,12 @@ class ShopPage:
 
     def __init__(self, driver):
         self.driver = driver
-        # self.shop_link = (By.CSS_SELECTOR, "a[href*='shop']")
-        # self.product_cards = (By.XPATH, '//div[@class="card h-100"]')
-        # self.checkout_button = (By.CSS_SELECTOR, "a[class*='btn-primary']")
+        self.shop_link = (By.CSS_SELECTOR, "a[href*='shop']")
+        self.product_cards = (By.XPATH, '//div[@class="card h-100"]')
 
     def add_product_to_cart(self, product_name):
-        self.driver.find_element(By.CSS_SELECTOR, "a[href*='shop']").click()
-        products = self.driver.find_elements(By.XPATH, '//div[@class="card h-100"]')
+        self.driver.find_element(*self.shop_link).click()
+        products = self.driver.find_elements(*self.product_cards)
 
         for product in products:
             product_Name = product.find_element(By.XPATH, "div/h4/a").text
