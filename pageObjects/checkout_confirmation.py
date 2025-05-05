@@ -4,12 +4,18 @@ from selenium.webdriver.common.by import By
 class Checkout_Confirmation:
 
     def __int__(self, driver):
-
-
+        self.driver = driver
+        self.checkout_button = (By.XPATH, "//button[@class='btn btn-success']")
+        self.country_input = (By.ID, "country")
+        self.country_option = (By.LINK_TEXT, "India")
+        self.checkbox = (By.XPATH, "//div[@class='checkbox checkbox-primary']")
+        self.submit_button = (By.CSS_SELECTOR, "[type='submit']")
+        self.success_message = (By.CLASS_NAME, "alert-success")
 
 
 
     def checkout(self):
+        self.driver.find_element(*self.checkout_button).click()
 
 
 
