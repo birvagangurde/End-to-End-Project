@@ -1,5 +1,7 @@
 
 
+
+
 class Checkout_Confirmation:
 
     def __int__(self):
@@ -15,4 +17,3 @@ class Checkout_Confirmation:
 
 
     def validate_order(self):
-
