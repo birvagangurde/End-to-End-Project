@@ -33,3 +33,5 @@ class Checkout_Confirmation:
 
 
     def validate_order(self):
+        successText = self.driver.find_element(*self.success_message).text
+        assert "Success! Thank you!" in successText
