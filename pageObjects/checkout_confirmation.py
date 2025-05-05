@@ -22,13 +22,13 @@ class Checkout_Confirmation:
 
 
     def enter_delivery_add(self):
-        driver.find_element(By.XPATH, "//button[@class='btn btn-success']").click()
-        driver.find_element(By.ID, "country").send_keys("ind")
-        wait = WebDriverWait(driver, 10)
-        wait.until(expected_conditions.presence_of_element_located((By.LINK_TEXT, "India")))
-        driver.find_element(By.LINK_TEXT, "India").click()
-        driver.find_element(By.XPATH, "//div[@class='checkbox checkbox-primary']").click()
-        driver.find_element(By.CSS_SELECTOR, "[type=""submit]").click()
+        self.driver.find_element(*self.checkout_button).click()
+        self.driver.find_element(*self.country_input).send_keys("ind")
+        wait = WebDriverWait(self.driver, 10)
+        wait.until(expected_conditions.presence_of_element_located(self.country_option))
+        self.driver.find_element(*self.country_option).click()
+        self.driver.find_element(*self.checkbox).click()
+        self.driver.find_element(*self.submit_button).click()
 
 
 
