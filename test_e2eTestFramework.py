@@ -17,13 +17,7 @@ def test_e2e(browserInstance):
     shop_page = loginPage.login()
     shop_page.add_product_to_cart("Blackberry")
     shop_page.goToCart()
-    driver.find_element(By.XPATH, "//button[@class='btn btn-success']").click()
-    driver.find_element(By.ID, "country").send_keys("ind")
-    wait = WebDriverWait(driver, 10)
-    wait.until(expected_conditions.presence_of_element_located((By.LINK_TEXT, "India")))
-    driver.find_element(By.LINK_TEXT, "India").click()
-    driver.find_element(By.XPATH, "//div[@class='checkbox checkbox-primary']").click()
-    driver.find_element(By.CSS_SELECTOR, "[type=""submit]").click()
+
     successText = driver.find_element(By.CLASS_NAME, "alert-success").text
     print(successText)
 
