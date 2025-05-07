@@ -16,4 +16,7 @@ def test_e2e(browserInstance):
     loginPage = LoginPage(driver)
     shop_page = loginPage.login()
     shop_page.add_product_to_cart("Blackberry")
-    shop_page.goToCart()
+    checkout_confirmation = shop_page.goToCart()
+    checkout_confirmation.enter_delivery_add("ind")
+    checkout_confirmation.validate_order()
+
