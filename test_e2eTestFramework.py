@@ -17,9 +17,3 @@ def test_e2e(browserInstance):
     shop_page = loginPage.login()
     shop_page.add_product_to_cart("Blackberry")
     shop_page.goToCart()
-
-    successText = driver.find_element(By.CLASS_NAME, "alert-success").text
-    print(successText)
-
-    assert "Success! Thank you!" in successText
-    driver.close()

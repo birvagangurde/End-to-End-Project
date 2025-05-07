@@ -24,4 +24,5 @@ class ShopPage:
     def goToCart(self):
         self.driver.find_element(*self.checkout_button).click()
         checkout_confirmation = Checkout_Confirmation(self.driver)
+        return checkout_confirmation
 
