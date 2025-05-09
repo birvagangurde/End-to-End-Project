@@ -1,5 +1,6 @@
+import json
 
-
+import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
@@ -9,7 +10,12 @@ from selenium.webdriver.support.wait import WebDriverWait
 from pageObjects.ShopPage import ShopPage
 from pageObjects.login import LoginPage
 
+test_data_path = '../data/test_e2eTestFramework.json'
+with open(test_data_path) as f:
+    test_data = json.load(f)
+    test_list = test_data["data"]
 
+@pytest.mark.parametrize
 def test_e2e(browserInstance):
     driver = browserInstance
     driver.get("https://rahulshettyacademy.com/loginpagePractise/")
