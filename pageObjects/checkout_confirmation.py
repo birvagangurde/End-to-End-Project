@@ -14,12 +14,8 @@ class Checkout_Confirmation:
         self.submit_button = (By.CSS_SELECTOR, "[type='submit']")
         self.success_message = (By.CLASS_NAME, "alert-success")
 
-
-
     def checkout(self):
         self.driver.find_element(*self.checkout_button).click()
-
-
 
     def enter_delivery_add(self):
         self.driver.find_element(*self.checkout_button).click()
@@ -29,8 +25,6 @@ class Checkout_Confirmation:
         self.driver.find_element(*self.country_option).click()
         self.driver.find_element(*self.checkbox).click()
         self.driver.find_element(*self.submit_button).click()
-
-
 
     def validate_order(self):
         successText = self.driver.find_element(*self.success_message).text
