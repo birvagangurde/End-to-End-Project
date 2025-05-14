@@ -14,10 +14,8 @@ def browserInstance(request):
     browser_name = request.config.getoption("--browser_name")
     if browser_name == "chrome": #firefox
         driver = webdriver.Chrome()
-        driver.implicitly_wait(5)
     elif browser_name == "firefox":
         driver = webdriver.Firefox()
-        driver.implicitly_wait(5)
     else:
         raise ValueError(f"Unsupported browser: {browser_name}")
     driver.implicitly_wait(4)
