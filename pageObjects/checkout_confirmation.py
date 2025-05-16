@@ -5,7 +5,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 
 class Checkout_Confirmation:
 
-    def __int__(self, driver):
+    def __init__(self, driver):
         self.driver = driver
         self.checkout_button = (By.XPATH, "//button[@class='btn btn-success']")
         self.country_input = (By.ID, "country")
@@ -17,9 +17,8 @@ class Checkout_Confirmation:
     def checkout(self):
         self.driver.find_element(*self.checkout_button).click()
 
-    def enter_delivery_add(self):
-        self.driver.find_element(*self.checkout_button).click()
-        self.driver.find_element(*self.country_input).send_keys("ind")
+    def enter_delivery_address(self, countryName):
+        self.driver.find_element(*self.country_input).send_keys(countryName)
         wait = WebDriverWait(self.driver, 10)
         wait.until(expected_conditions.presence_of_element_located(self.country_option))
         self.driver.find_element(*self.country_option).click()

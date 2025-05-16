@@ -5,7 +5,7 @@ from selenium.webdriver.common.by import By
 
 from pageObjects.ShopPage import ShopPage
 
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+# sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 class LoginPage:
     def __init__(self, driver):

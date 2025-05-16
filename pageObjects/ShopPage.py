@@ -11,7 +11,6 @@ class ShopPage:
         self.product_cards = (By.XPATH, '//div[@class="card h-100"]')
         self.checkout_button = (By.CSS_SELECTOR, "a[class*='btn-primary']")
 
-
     def add_product_to_cart(self, product_name):
         self.driver.find_element(*self.shop_link).click()
         products = self.driver.find_elements(*self.product_cards)
@@ -25,4 +24,3 @@ class ShopPage:
         self.driver.find_element(*self.checkout_button).click()
         checkout_confirmation = Checkout_Confirmation(self.driver)
         return checkout_confirmation
-
