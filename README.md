@@ -6,10 +6,10 @@ HTML reports are generated after every test run.
 
 ## 📁 Project Structure
 
-├── data/
+├── data
 │ └── test_data.json # Test data in JSON format
-├── pageobjects/ # Page Object classes (POM)
-├── sel/
+├── pageobjects # Page Object classes (POM)
+├── sel
 │ ├── framework.py # Core framework logic (driver init, utilities, hooks)
 │ ├── conftest.py # Pytest fixtures
 │ └── test_sorting.py # Test file for table sorting functionality
